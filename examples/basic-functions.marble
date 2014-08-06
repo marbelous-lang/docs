@@ -6,7 +6,7 @@ Value factory (produces 00 whenever the corresponding Sm is triggered)
 .. A  ..
 Pn .. ..
 
-Multiplication
+Multiplication (Mp)
 
 P1 I1 .. P2 I2 ..
 \  .. .. \  .. ..
@@ -57,5 +57,10 @@ Equals (==)
 .. =0 .. 
 .. .. U 
 
-To be implemented:
-Substraction (Su)
+Subtraction (Su)
+I1 FF I2
+.. .. //
+.. Mp ..
+\\ .. ..
+.. .. ..
+.. O1 ..
