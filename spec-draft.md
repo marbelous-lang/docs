@@ -204,39 +204,39 @@ Appendix 1 - Comprehensive List of Devices
 ---
 In this list, unless otherwise stated, `n` must be replaced by a base-36 digit (`0-Z`).
 
-|  |Device Name|Description|
-|--|-----------|----------|
-||**Flow Control**||
-|`//`|Left Deflector|Shifts the passing marble to the cell left of the deflector. Movement leftward occurs during the tick after a marble reaches the left deflector, and replaces the standard downward falling action.|
-|`\\`|Right Deflector|Shifts the passing marble to the cell right of the deflector. Movement rightward occurs during the tick after a marble reaches the left deflector, and replaces the standard downward falling action.|
-|`@n`|Portal|A marble entering a portal will exit through another portal in the same board with the same value for `n`. If more than one such portal exists, the portal of exit will be selected randomly. In the special case where no other portal with the same `n` can be located, the marble simply continues downward. Movement to the location of another portal occurs in the same tick in which the marble reaches the portal.|
-|`&n`|Synchroniser|Holds passed marbles in place, and only releases them when all synchronisers in a board with the same `n` have been filled. If marbles are passed through the same synchroniser while it holds a marble in place, the marbles are merged with the marble in the synchroniser.|
-||**Conditionals**||
-|`=n`|Equals To|If the passed marble is equal to `n`, then this device acts as an empty cell. Otherwise, this device acts as a right deflector.|
-|`>n`|Greater Than|If the passed marble is strictly greater than `n`, then this device acts as an empty cell. Otherwise, this device acts as a right deflector.|
-|`<n`|Less Than|If the passed marble is strictly less than `n`, then this device acts as an empty cell. Otherwise, this device acts as a right deflector. Note that for `n=0`, marbles are unconditionally shifted to the right.|
-||**Arithmetic**||
-|`+n`|Adder|Adds `n` to passing marbles.|
-|`-n`|Subtractor|Subtracts `n` from passing marbles.|
-|`++`|Incrementor|Adds `1` to passing marbles. Equivalent to `+1`.|
-|`--`|Decrementor|Subtracts `1` from passing marbles. Equivalent to `-1`.|
-||**Bit Operations**||
-|`^n`|Bit Checker|A bit checker returns the value of the `n`th bit of the passed marble as either 0 or 1, counting upwards from the least significant bit (considered as the 0th bit). `n` must be between `0` and `7` inclusive.|
-|`<<`|Left Bit Shifter|Performs a logical left bit shift (shifts by `1`) on the values of passing marbles.|
-|`>>`|Right Bit Shifter|Performs a logical right bit shift (shifts by `1`) on the values of passing marbles.|
-|`~~`|Binary Not|Inverts the bits of the values of passing marbles.|
-||**Input/Output**||
-|`]]`|STDIN|Tries to read a single byte of input from STDIN. If unsuccessful, the passed marble is diverted to the right. Otherwise, the marble passes downward with its value changed to the byte read.|
-|`}n`|Input|This is replaced during every call of the board by a marble with the value of the `n`th input passed to the board. Acts like an empty cell. More than one input device with the same `n` may be used per board. See Section 1 for more details.|
-|`{n`|Output|Acts similarly to a synchroniser with all other output devices on the board, except the board terminates after all outputs are filled. More than one output device with the same `n` may be used per board. See Section 1 for more details.|
-|`{<`|Left Output|Similar to output devices, except the marble will be outputted from the board on the left instead of downwards. See Section 1 for more details.|
-|`{>`|Right Output|Similar to output devices, except the marble will be outputted from the board on the right instead of downwards. See Section 1 for more details.
-||**Miscellaneous**||
-|`\/`|Trash Bin|Any marble that passes through a trash bin is removed from the board.|
-|`/\`|Cloner|A cloner emits copies of the passed marble to both the cell left of, and the cell right of itself. The original marble is then discarded.|
-|`!!`|Terminator|The board will terminate at the end of the tick where a marble reaches a terminator. Any filled outputs at this point will still be used.|
-|`?n`|Random|Ignores the value of the passed marble and sets its value to be a random integer between `0` and `n`, inclusive.|
-|`??`|Random|Sets the value of passing marbles to be a random integer between 0 and the value of the passed marble, inclusive.|
+  |Device Name|Description
+---|-----------|----------
+ |**Flow Control**|
+`//`|Left Deflector|Shifts the passing marble to the cell left of the deflector. Movement leftward occurs during the tick after a marble reaches the left deflector, and replaces the standard downward falling action.
+`\\`|Right Deflector|Shifts the passing marble to the cell right of the deflector. Movement rightward occurs during the tick after a marble reaches the left deflector, and replaces the standard downward falling action.
+`@n`|Portal|A marble entering a portal will exit through another portal in the same board with the same value for `n`. If more than one such portal exists, the portal of exit will be selected randomly. In the special case where no other portal with the same `n` can be located, the marble simply continues downward. Movement to the location of another portal occurs in the same tick in which the marble reaches the portal.
+`&n`|Synchroniser|Holds passed marbles in place, and only releases them when all synchronisers in a board with the same `n` have been filled. If marbles are passed through the same synchroniser while it holds a marble in place, the marbles are merged with the marble in the synchroniser.
+ |**Conditionals**|
+`=n`|Equals To|If the passed marble is equal to `n`, then this device acts as an empty cell. Otherwise, this device acts as a right deflector.
+`>n`|Greater Than|If the passed marble is strictly greater than `n`, then this device acts as an empty cell. Otherwise, this device acts as a right deflector.
+`<n`|Less Than|If the passed marble is strictly less than `n`, then this device acts as an empty cell. Otherwise, this device acts as a right deflector. Note that for `n=0`, marbles are unconditionally shifted to the right.
+ |**Arithmetic**|
+`+n`|Adder|Adds `n` to passing marbles.
+`-n`|Subtractor|Subtracts `n` from passing marbles.
+`++`|Incrementor|Adds `1` to passing marbles. Equivalent to `+1`.
+`--`|Decrementor|Subtracts `1` from passing marbles. Equivalent to `-1`.
+ |**Bit Operations**|
+`^n`|Bit Checker|A bit checker returns the value of the `n`th bit of the passed marble as either 0 or 1, counting upwards from the least significant bit (considered as the 0th bit). `n` must be between `0` and `7` inclusive.
+`<<`|Left Bit Shifter|Performs a logical left bit shift (shifts by `1`) on the values of passing marbles.
+`>>`|Right Bit Shifter|Performs a logical right bit shift (shifts by `1`) on the values of passing marbles.
+`~~`|Binary Not|Inverts the bits of the values of passing marbles.
+ |**Input/Output**|
+`]]`|STDIN|Tries to read a single byte of input from STDIN. If unsuccessful, the passed marble is diverted to the right. Otherwise, the marble passes downward with its value changed to the byte read.
+`}n`|Input|This is replaced during every call of the board by a marble with the value of the `n`th input passed to the board. Acts like an empty cell. More than one input device with the same `n` may be used per board. See Section 1 for more details.
+`{n`|Output|Acts similarly to a synchroniser with all other output devices on the board, except the board terminates after all outputs are filled. More than one output device with the same `n` may be used per board. See Section 1 for more details.
+`{<`|Left Output|Similar to output devices, except the marble will be outputted from the board on the left instead of downwards. See Section 1 for more details.
+`{>`|Right Output|Similar to output devices, except the marble will be outputted from the board on the right instead of downwards. See Section 1 for more details.
+ |**Miscellaneous**|
+`\/`|Trash Bin|Any marble that passes through a trash bin is removed from the board.
+`/\`|Cloner|A cloner emits copies of the passed marble to both the cell left of, and the cell right of itself. The original marble is then discarded.
+`!!`|Terminator|The board will terminate at the end of the tick where a marble reaches a terminator. Any filled outputs at this point will still be used.
+`?n`|Random|Ignores the value of the passed marble and sets its value to be a random integer between `0` and `n`, inclusive.
+`??`|Random|Sets the value of passing marbles to be a random integer between 0 and the value of the passed marble, inclusive.
 
 Appendix 2 - Examples
 ---
