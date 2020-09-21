@@ -204,7 +204,7 @@ Appendix 1 - Comprehensive List of Devices
 ---
 In this list, unless otherwise stated, `n` must be replaced by a base-36 digit (`0-Z`).
 
-  |Device Name|Description
+|  |Device Name|Description
 ---|-----------|----------
  |**Flow Control**|
 `//`|Left Deflector|Shifts the passing marble to the cell left of the deflector. Movement leftward occurs during the tick after a marble reaches the left deflector, and replaces the standard downward falling action.
